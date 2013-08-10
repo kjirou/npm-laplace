@@ -41,7 +41,7 @@ $ npm install laplace
 var mock = laplace.createMock(100);
 
 for (var i = 0; i < 100; i += 1) {
-  console.log(mock());  // Nearly 0, 0.1, 0.2, .. , 0.99
+  console.log(mock());  // Nearly 0, 0.01, 0.02, .. , 0.99
 }
 
 mock();  // Throw a error, because execution count is overflow
@@ -62,7 +62,7 @@ var mock = laplace.createMock(100);
 var stub = sinon.stub(Math, "random", mock);
 
 for (var i = 0; i < 100; i += 1) {
-  console.log(Math.random());  // 0, 0.1, 0.2, .. , 0.99
+  console.log(Math.random());  // Nearly 0, 0.01, 0.02, .. , 0.99
 }
 
 stub.restore();
@@ -117,3 +117,4 @@ $ npm install
 ## Related Links
 
 - [npm - laplace](https://npmjs.org/package/laplace)
+- [日本語紹介記事](http://blog.kjirou.net/p/3553)

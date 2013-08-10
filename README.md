@@ -51,7 +51,7 @@ mock();  // Throw a error, because execution count is overflow
 - The range of results that you can expect are like this:
 
 ```
-[(0 < rand <= 0.1), (0.1 < rand <= 0.2), .. , (0.99 <= rand < 1.0)]
+[(0 <= rand < 0.1), (0.1 <= rand < 0.2), .. , (0.99 <= rand < 1.0)]
 ```
 
 

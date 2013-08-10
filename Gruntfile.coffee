@@ -45,8 +45,8 @@ module.exports = (grunt) ->
         ]
         overwrite: true
         replacements: [
-          from: /(['"])0\.0\.0(['"])/
-          to: '$10.0.1$2'
+          from: /(['"])0\.0\.1(['"])/
+          to: '$10.0.2$2'
         ]
 
     testem:

@@ -3,7 +3,7 @@
   var laplace = {};
 
 
-  laplace.VERSION = "0.0.1";
+  laplace.VERSION = "0.0.2";
 
 
   // Notice:

@@ -5,7 +5,7 @@
     "url": "https://github.com/kjirou/npm-laplace"
   },
   "description": "A mock generator to replace Math.random() for testing",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "kjirou",
   "keywords": [
     "random",

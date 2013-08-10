@@ -29,7 +29,8 @@
       self._execIndex += 1;
 
       // Modify result to assure the value to be greater than expected value.
-      // But, I don't know details of the cause..  I decide to secure it by test.
+      // But, I don't know details of the cause. I decide to secure it by test.
+      // Also if you don't have this modifying, then it occur a bug in _.random.
       return result + 0.00000001;
     };
 

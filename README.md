@@ -41,10 +41,17 @@ $ npm install laplace
 var mock = laplace.createMock(100);
 
 for (var i = 0; i < 100; i += 1) {
-  console.log(mock());  // 0, 0.1, 0.2, .. , 0.99
+  console.log(mock());  // Nearly 0, 0.1, 0.2, .. , 0.99
 }
 
 mock();  // Throw a error, because execution count is overflow
+```
+
+- Exactly, results are not equal for each "0, 0.1, .. 0.99".
+- The range of results that you can expect are like this:
+
+```
+[(0 < rand <= 0.1), (0.1 < rand <= 0.2), .. , (0.99 <= rand < 1.0)]`
 ```
 
 

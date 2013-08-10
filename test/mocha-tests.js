@@ -14,8 +14,8 @@ describe("laplace module", function(){
 
     for (var i = 0; i < 100; i += 1) {
       var result = mock();
-      expect(result).to.be.greaterThan(i / 100);
-      expect(result).to.be.lessThan((i + 1) / 100);
+      expect(result >= i / 100).to.ok();
+      expect(result < (i + 1) / 100).to.ok();
 
       if (i === 99) {
         expect(mock.isCompleted()).to.ok();
@@ -35,8 +35,8 @@ describe("laplace module", function(){
     for (var i = 0; i < 30; i += 1) {
       var rate = i % 10;
       var result = mock();
-      expect(result).to.be.greaterThan(rate / 10);
-      expect(result).to.be.lessThan((rate + 1) / 10);
+      expect(result >= rate / 10).to.ok();
+      expect(result < (rate + 1) / 10).to.ok();
 
       if (i === 29) {
         expect(mock.isCompleted()).to.ok();

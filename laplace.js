@@ -6,29 +6,41 @@
   laplace.VERSION = "0.0.0";
 
 
-  laplace.createMock = function(resultCount, setCount){
-    setCount = setCount || 1;
+  // Notice:
+  // execCount must be less than about 1000000.
+  // If it is too larger, then it will malfunction by the cause of float calculation.
+  laplace.createMock = function(execCount, roundCount){
+
+    roundCount = roundCount || 1;
 
     var mock = function(){
       var self = arguments.callee;
-      var result =  self._results.shift();
-      if (result === undefined) {
-        throw new Error("Execution count overflow");
+
+      if (self._execIndex === self._execCount) {
+        if (self._roundIndex + 1 === self._roundCount) {
+          throw new Error("Execution count overflow");
+        } else {
+          self._execIndex = 0;
+          self._roundIndex += 1;
+        }
       }
-      return result;
+
+      var result =  self._execIndex / self._execCount;
+      self._execIndex += 1;
+
+      // Modify result to assure the value to be greater than expected value.
+      // But, I don't know details of the cause..  I decide to secure it by test.
+      return result + 0.00000001;
     };
 
-    mock._results = [];
-
-    var setIndex, resultIndex;
-    for (setIndex = 0; setIndex < setCount; setIndex += 1) {
-      for (resultIndex = 0; resultIndex < resultCount; resultIndex += 1) {
-        mock._results.push(resultIndex / resultCount);
-      }
-    }
+    mock._execCount = execCount;
+    mock._roundCount = roundCount;
+    mock._execIndex = 0;
+    mock._roundIndex = 0;
 
     mock.isCompleted = function(){
-      return this._results.length === 0;
+      return this._execIndex === this._execCount &&
+        this._roundIndex + 1 === this._roundCount;
     };
 
     return mock;

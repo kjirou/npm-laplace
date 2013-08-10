@@ -2,6 +2,7 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-concat'
+  grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-mocha-test'
@@ -17,9 +18,18 @@ module.exports = (grunt) ->
       js:
         src: '<%= pkg.main %>'
         mocha_test_index: 'test/index.js'
-        mocha_tests: 'test/tests.js'
+        mocha_tests: 'test/mocha-tests.js'
       builded:
         minified: 'laplace.min.js'
+
+    jshint:
+      files: [
+        '<%= constants.js.src %>'
+        '<%= constants.js.mocha_tests %>'
+      ]
+      options: {
+        jshintrc: '.jshintrc'
+      }
 
     mochaTest:
       options:
@@ -86,4 +96,5 @@ module.exports = (grunt) ->
 
   # Shortcuts
   grunt.registerTask 't', ['test']
+  grunt.registerTask 'h', ['jshint']
   grunt.registerTask 'default', ['test']

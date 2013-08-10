@@ -89,6 +89,10 @@ module.exports = (grunt) ->
     'testem:xb'
   ]
 
+  grunt.registerTask 'travis', [
+    'testem:travis'
+  ]
+
 
   # Aliases
   grunt.registerTask 'test', ['test:mocha']

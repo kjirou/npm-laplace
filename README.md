@@ -51,7 +51,7 @@ mock();  // Throw a error, because execution count is overflow
 - The range of results that you can expect are like this:
 
 ```
-[(0 < rand <= 0.1), (0.1 < rand <= 0.2), .. , (0.99 <= rand < 1.0)]`
+[(0 < rand <= 0.1), (0.1 < rand <= 0.2), .. , (0.99 <= rand < 1.0)]
 ```
 
 
@@ -73,8 +73,8 @@ And, with `_.random` of Underscore.js
 var mock = laplace.createMock(5);
 var stub = sinon.stub(Math, "random", mock);
 
-for (var i = 0; i < 100; i += 1) {
-  console.log(_.random());  // 0, 1, 2, 3, 4
+for (var i = 0; i < 5; i += 1) {
+  console.log(_.random(0, 4));  // 0, 1, 2, 3, 4
 }
 
 stub.restore();

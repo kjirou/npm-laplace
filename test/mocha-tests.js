@@ -13,7 +13,7 @@ describe("laplace module", function(){
     expect(mock).to.be.a("function");
 
     for (var i = 0; i < 100; i += 1) {
-      result = mock();
+      var result = mock();
       expect(result).to.be.greaterThan(i / 100);
       expect(result).to.be.lessThan((i + 1) / 100);
 

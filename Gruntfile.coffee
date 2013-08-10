@@ -46,7 +46,7 @@ module.exports = (grunt) ->
         overwrite: true
         replacements: [
           from: /(['"])0\.0\.0(['"])/
-          to: '$10.0.0$2'
+          to: '$10.0.1$2'
         ]
 
     testem:
@@ -75,6 +75,11 @@ module.exports = (grunt) ->
       travis:
         src: '<%= testem._src %>'
 
+    uglify:
+      production:
+        files:
+          '<%= constants.builded.minified %>': '<%= constants.js.src %>'
+
 
   # Custom tasks
   grunt.registerTask 'test:mocha', [
@@ -91,6 +96,11 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'travis', [
     'testem:travis'
+  ]
+
+  grunt.registerTask 'release', [
+    'replace:version'
+    'uglify:production'
   ]
 
 

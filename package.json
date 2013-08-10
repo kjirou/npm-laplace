@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/kjirou/npm-laplace"
   },
-  "description": "A mock functions to replace Math.random() for testing",
+  "description": "A mock generator to replace Math.random() for testing",
   "version": "0.0.1",
   "author": "kjirou",
   "keywords": [
@@ -33,6 +33,6 @@
   },
   "main": "laplace.js",
   "scripts": {
-    "test": "grunt test:mocha"
+    "test": "grunt test"
   }
 }

@@ -6,9 +6,9 @@ A mock generator to replace Math.random() for testing
 
 ## Download
 
-- [Stable production version](https://raw.github.com/kjirou/jquery.tempura/master/laplace.min.js)
-- [Stable development version](https://raw.github.com/kjirou/jquery.tempura/master/laplace.js)
-- [Old releases](https://github.com/kjirou/laplace/releases)
+- [Stable production version](https://raw.github.com/kjirou/npm-laplace/master/laplace.min.js)
+- [Stable development version](https://raw.github.com/kjirou/npm-laplace/master/laplace.js)
+- [Old releases](https://github.com/kjirou/npm-laplace/releases)
 
 Or, if you can use `npm`:
 ```
@@ -93,7 +93,7 @@ $ cd npm-laplace
 $ npm install
 ```
 
-### Utils commands
+### Util commands
 
 - `grunt jshint` validates codes by JSHint.
 - `grunt release` generates JavaScript files for release.

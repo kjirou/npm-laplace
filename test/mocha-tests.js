@@ -1,4 +1,5 @@
 describe("laplace module", function(){
+
   it("Module definition", function(){
     expect(laplace).to.be.a("object");
   });
@@ -65,5 +66,18 @@ describe("laplace module", function(){
   });
 
   it("Use with Sinon.js", function(){
+    var mock = laplace.createMock(100);
+    var stub = sinon.stub(Math, "random", mock);
+
+    for (var i = 0; i < 100; i += 1) {
+      // _.random uses Math.random() once
+      expect(_.random(0, 99)).to.be(i);
+    }
+
+    expect(function(){
+      _.random();
+    }).throwError(/^Execution/);
+
+    stub.restore();
   });
 });
